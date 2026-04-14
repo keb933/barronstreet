@@ -1,0 +1,339 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap');
+  :root {
+    --pine: #2C3E2D;
+    --bark: #7A5C3A;
+    --straw: #D4A855;
+    --cream: #F7F1E8;
+    --stone: #9B8F7E;
+    --sky: #B8CDD6;
+    --white: #FDFCF9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Lato', sans-serif; background: var(--white); color: #2a2a2a; }
+
+  .nav {
+    background: var(--pine);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--cream);
+    font-size: 17px;
+    letter-spacing: 0.02em;
+  }
+  .nav-brand span { color: var(--straw); font-size: 11px; display: block; font-family: 'Lato', sans-serif; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 300; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { color: rgba(247,241,232,0.75); font-size: 13px; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400; }
+  .nav-links a:hover { color: var(--straw); }
+
+  .hero {
+    position: relative;
+    height: 480px;
+    background: linear-gradient(160deg, #2C3E2D 0%, #3d5c3f 40%, #5a7a4a 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='600' height='480' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='500' cy='100' r='300' fill='%23ffffff08'/%3E%3Ccircle cx='80' cy='380' r='200' fill='%23ffffff05'/%3E%3C/svg%3E") center/cover;
+  }
+  .hero-content { position: relative; z-index: 2; padding: 0 3rem; max-width: 580px; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--straw); font-weight: 700; margin-bottom: 14px; }
+  .hero-title { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 44px; line-height: 1.18; margin-bottom: 20px; font-weight: 600; }
+  .hero-title em { color: var(--straw); font-style: normal; }
+  .hero-sub { color: rgba(247,241,232,0.72); font-size: 16px; line-height: 1.7; font-weight: 300; margin-bottom: 28px; }
+  .hero-btns { display: flex; gap: 12px; }
+  .btn-primary { background: var(--straw); color: #1a1a1a; padding: 11px 26px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; border-radius: 2px; }
+  .btn-outline { background: transparent; color: var(--cream); padding: 11px 26px; font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; border: 1.5px solid rgba(247,241,232,0.4); cursor: pointer; border-radius: 2px; }
+  .hero-flag {
+    position: absolute; right: 3rem; top: 0; bottom: 0;
+    display: flex; align-items: center;
+    opacity: 0.12;
+    font-size: 120px;
+  }
+
+  .ribbon {
+    background: var(--bark);
+    color: var(--cream);
+    text-align: center;
+    padding: 14px 2rem;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+  }
+  .ribbon strong { color: var(--straw); }
+
+  .section { padding: 60px 3rem; }
+  .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bark); font-weight: 700; margin-bottom: 10px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--pine); margin-bottom: 16px; line-height: 1.2; }
+  .section-body { font-size: 16px; line-height: 1.75; color: #4a4a4a; font-weight: 300; max-width: 600px; }
+
+  .uses-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #e0d8cc;
+    margin-top: 40px;
+    border: 1px solid #e0d8cc;
+  }
+  .use-card {
+    background: var(--white);
+    padding: 28px 22px;
+  }
+  .use-icon { font-size: 28px; margin-bottom: 14px; }
+  .use-title { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--pine); margin-bottom: 8px; }
+  .use-desc { font-size: 13px; color: #666; line-height: 1.65; font-weight: 300; }
+
+  .tanza-section {
+    background: var(--pine);
+    padding: 60px 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .tanza-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--straw); font-weight: 700; margin-bottom: 10px; }
+  .tanza-title { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--cream); margin-bottom: 16px; line-height: 1.2; }
+  .tanza-body { font-size: 15px; line-height: 1.75; color: rgba(247,241,232,0.72); font-weight: 300; }
+  .tanza-stat {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+  .tanza-stat-num { font-family: 'Playfair Display', serif; font-size: 38px; color: var(--straw); }
+  .tanza-stat-label { font-size: 12px; color: rgba(247,241,232,0.55); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+
+  .property-section {
+    background: var(--cream);
+    padding: 60px 3rem;
+  }
+  .facility-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .tag {
+    background: var(--white);
+    border: 1px solid #d4c9b8;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: var(--pine);
+    font-weight: 400;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+  .tag strong { color: var(--bark); font-weight: 700; }
+
+  .dogtrot-note {
+    margin-top: 32px;
+    padding: 20px 24px;
+    border-left: 3px solid var(--straw);
+    background: var(--white);
+  }
+  .dogtrot-note p { font-size: 14px; color: #555; line-height: 1.7; font-style: italic; }
+  .dogtrot-note strong { color: var(--bark); font-style: normal; }
+
+  .rental-section {
+    padding: 60px 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .rental-card {
+    border: 1px solid #e0d8cc;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .rental-header {
+    background: var(--bark);
+    padding: 20px 24px;
+  }
+  .rental-header h3 { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 20px; }
+  .rental-header p { color: rgba(247,241,232,0.7); font-size: 13px; margin-top: 4px; font-weight: 300; }
+  .rental-body { padding: 20px 24px; }
+  .rental-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; font-size: 14px; color: #4a4a4a; line-height: 1.55; }
+  .rental-dot { width: 6px; height: 6px; background: var(--straw); border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+
+  .contact-bar {
+    background: var(--pine);
+    padding: 40px 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .contact-bar-text h3 { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 24px; margin-bottom: 6px; }
+  .contact-bar-text p { color: rgba(247,241,232,0.65); font-size: 14px; font-weight: 300; }
+  .contact-items { display: flex; gap: 32px; }
+  .contact-item { text-align: center; }
+  .contact-item-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--straw); font-weight: 700; margin-bottom: 6px; }
+  .contact-item-val { color: var(--cream); font-size: 14px; font-weight: 300; }
+
+  .footer {
+    background: #1a2419;
+    padding: 24px 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; color: rgba(247,241,232,0.5); font-size: 14px; }
+  .footer-note { font-size: 12px; color: rgba(247,241,232,0.3); }
+</style>
+
+<div>
+  <nav class="nav">
+    <div class="nav-brand">
+      Barron Street Training Center
+      <span>Rusk, Texas</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">About</a>
+      <a href="#">Programs</a>
+      <a href="#">Facility</a>
+      <a href="#">Rent Space</a>
+      <a href="#">TANZA</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Rusk, Texas · Cherokee County</div>
+      <h1 class="hero-title">Where Community<br>Comes to <em>Learn & Grow</em></h1>
+      <p class="hero-sub">A one-acre multi-purpose facility in the heart of East Texas — built for small-group instruction, community workshops, and professional dog training.</p>
+      <div class="hero-btns">
+        <button class="btn-primary">Explore the Facility</button>
+        <button class="btn-outline">Rent Our Space</button>
+      </div>
+    </div>
+    <div class="hero-flag">🇺🇸</div>
+  </section>
+
+  <div class="ribbon">
+    Supported by <strong>TANZA</strong> — proceeds fund the development of this community training center
+  </div>
+
+  <section class="section">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">A Space Built for Every Kind of Learning</h2>
+    <p class="section-body">From weekend community workshops to professional dog training certifications, Barron Street Training Center is designed to serve the people and programs of East Texas.</p>
+    <div class="uses-grid">
+      <div class="use-card">
+        <div class="use-icon">📚</div>
+        <div class="use-title">Small-Group Instruction</div>
+        <div class="use-desc">Intimate classroom-style settings ideal for hands-on learning, skill building, and professional development courses.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">🤝</div>
+        <div class="use-title">Community Workshops</div>
+        <div class="use-desc">Open to Cherokee County and surrounding communities — a gathering place for education, enrichment, and shared knowledge.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">🐕</div>
+        <div class="use-title">Dog Training Programs</div>
+        <div class="use-desc">Dedicated space for obedience, service dog preparation, and certified training programs with proper outdoor areas.</div>
+      </div>
+      <div class="use-card">
+        <div class="use-icon">🏡</div>
+        <div class="use-title">Trainer Rentals</div>
+        <div class="use-desc">Certified trainers can rent the facility for specialized sessions — a professional venue without the overhead.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tanza-section">
+    <div>
+      <div class="tanza-label">Our Mission Partner</div>
+      <h2 class="tanza-title">Powered by TANZA</h2>
+      <p class="tanza-body">Proceeds from TANZA directly support the development of this multi-purpose training center. Every program, every event, every workshop is made possible through that commitment to community investment in East Texas.</p>
+      <div class="tanza-stat">
+        <div class="tanza-stat-num">1 Acre</div>
+        <div class="tanza-stat-label">Dedicated training & community facility</div>
+      </div>
+    </div>
+    <div>
+      <div class="tanza-body" style="margin-bottom: 20px;">The vision behind Barron Street Training Center is rooted in building something lasting — a place where individuals, families, trainers, and organizations can access quality instruction in a welcoming East Texas setting.</div>
+      <div class="tanza-stat">
+        <div class="tanza-stat-num">Rusk, TX</div>
+        <div class="tanza-stat-label">Serving Cherokee County & East Texas</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="property-section">
+    <div class="section-label">The Property</div>
+    <h2 class="section-title" style="color: var(--pine);">A Dogtrot Design Built to Grow</h2>
+    <p class="section-body" style="color: #555;">The facility is modeled on the classic East Texas dogtrot style — a design that is both deeply rooted in Southern tradition and purpose-built for expandability.</p>
+    <div class="facility-tags">
+      <span class="tag">🌳 One Acre</span>
+      <span class="tag">🏡 Dogtrot Architecture</span>
+      <span class="tag">📐 Expandable Layout</span>
+      <span class="tag">🐕 Outdoor Training Areas</span>
+      <span class="tag">🅿 Ample Parking</span>
+      <span class="tag">💡 Well-Lit Interior Spaces</span>
+      <span class="tag">🪨 Stone & Wood Construction</span>
+      <span class="tag">🌿 Landscaped Grounds</span>
+    </div>
+    <div class="dogtrot-note">
+      <p><strong>About the Dogtrot Style:</strong> The traditional dogtrot cabin — two rooms connected by an open breezeway — is an iconic piece of East Texas heritage. This design not only provides natural ventilation and an inviting covered outdoor space, but also allows the facility to be expanded over time as programs and community needs grow.</p>
+    </div>
+  </section>
+
+  <section class="rental-section">
+    <div>
+      <div class="section-label">Rent Our Space</div>
+      <h2 class="section-title">For Certified Trainers & Instructors</h2>
+      <p class="section-body">Barron Street Training Center is available for certified trainers to rent for specialized sessions. Professional space, flexible scheduling, East Texas roots.</p>
+    </div>
+    <div class="rental-card">
+      <div class="rental-header">
+        <h3>Facility Rental</h3>
+        <p>Available for certified professionals</p>
+      </div>
+      <div class="rental-body">
+        <div class="rental-item"><div class="rental-dot"></div>Indoor instruction room with flexible seating</div>
+        <div class="rental-item"><div class="rental-dot"></div>Outdoor training areas for dog programs</div>
+        <div class="rental-item"><div class="rental-dot"></div>Half-day and full-day rental options</div>
+        <div class="rental-item"><div class="rental-dot"></div>Available weekdays and weekends</div>
+        <div class="rental-item"><div class="rental-dot"></div>Certification documentation required</div>
+        <div class="rental-item"><div class="rental-dot"></div>Contact us to discuss rates & availability</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact-bar">
+    <div class="contact-bar-text">
+      <h3>Get in Touch</h3>
+      <p>Inquiries about programs, rentals, or TANZA</p>
+    </div>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-item-label">Location</div>
+        <div class="contact-item-val">Barron Street, Rusk TX</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Region</div>
+        <div class="contact-item-val">Cherokee County, East Texas</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Affiliation</div>
+        <div class="contact-item-val">TANZA Organization</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-brand">Barron Street Training Center · Rusk, Texas</div>
+    <div class="footer-note">A TANZA-supported community facility</div>
+  </footer>
+</div>
